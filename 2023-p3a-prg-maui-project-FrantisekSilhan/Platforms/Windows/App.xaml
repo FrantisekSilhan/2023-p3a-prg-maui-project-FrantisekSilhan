@@ -1,0 +1,8 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="_2023_p3a_prg_maui_project_FrantisekSilhan.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:_2023_p3a_prg_maui_project_FrantisekSilhan.WinUI">
+
+</maui:MauiWinUIApplication>
