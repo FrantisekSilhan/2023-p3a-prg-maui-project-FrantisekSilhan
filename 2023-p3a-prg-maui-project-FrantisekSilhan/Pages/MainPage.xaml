@@ -5,9 +5,10 @@
              x:Class="_2023_p3a_prg_maui_project_FrantisekSilhan.Pages.MainPage">
     <VerticalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="Open in Browser" Command="{Binding OpenInBrowserCommand}" Margin="10" />
-            <Button Text="{Binding CopyButtonText}" Command="{Binding CopyCommand}" Margin="10" />
-            <Button Text="{Binding SaveButtonText}" Command="{Binding SaveCommand}" Margin="10" />
+            <Button Text="Open in Browser" Command="{Binding OpenInBrowserCommand}" Margin="5" />
+            <Button Text="{Binding CopyButtonText}" Command="{Binding CopyCommand}" Margin="5" />
+            <Button Text="{Binding SaveButtonText}" Command="{Binding SaveCommand}" Margin="5" />
+            <Button Text="Clear" Command="{Binding ClearCommand}" Margin="5" />
         </HorizontalStackLayout>
         <Frame CornerRadius="50" Padding="0" Margin="25">
             <VerticalStackLayout>

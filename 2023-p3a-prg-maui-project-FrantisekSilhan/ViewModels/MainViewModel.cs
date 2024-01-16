@@ -45,6 +45,7 @@ namespace _2023_p3a_prg_maui_project_FrantisekSilhan.ViewModels
 				OpenInBrowserCommand?.ChangeCanExecute();
 				SaveCommand?.ChangeCanExecute();
 				CopyCommand?.ChangeCanExecute();
+				ClearCommand?.ChangeCanExecute();
 			}
 		}
 
@@ -87,6 +88,7 @@ namespace _2023_p3a_prg_maui_project_FrantisekSilhan.ViewModels
 		public Command CopyCommand { get; set; }
 		public Command DeleteCommand { get; set; }
 		public Command SaveCommand { get; set; }
+		public Command ClearCommand { get; set; }
 		private void OpenInBrowser(object param)
 		{
 			try
@@ -187,17 +189,33 @@ namespace _2023_p3a_prg_maui_project_FrantisekSilhan.ViewModels
 			}
 			OpenInBrowserCommand = new Command(OpenInBrowser, (x) =>
 			{
-				return IsValidBrowserLink(Value);
+				string valueToCopy = x as string;
+				if (string.IsNullOrEmpty(valueToCopy))
+				{
+					return IsValidBrowserLink(Value);
+				}
+				else
+				{
+					return IsValidBrowserLink(valueToCopy);
+				}
 			});
 			CopyCommand = new Command(Copy, (x) =>
 			{
-				return !string.IsNullOrEmpty(Value);
+				if (string.IsNullOrEmpty(x as string))
+				{
+					return !string.IsNullOrEmpty(Value);
+				}
+				return true;
 			});
 			SaveCommand = new Command(Save, (x) =>
 			{
 				return !string.IsNullOrEmpty(Value);
 			});
 			DeleteCommand = new Command(Delete);
+			ClearCommand = new Command(() => { Value = string.Empty; }, () =>
+			{
+				return !string.IsNullOrEmpty(Value);
+			});
 		}
 
 		#region MVVM

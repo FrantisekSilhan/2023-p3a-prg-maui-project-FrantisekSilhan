@@ -13,14 +13,16 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="75" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="1" Margin="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Value}" Padding="3" VerticalTextAlignment="Center"></Label>
+                            <Label Grid.Row="1" Margin="5" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Value}" Padding="3" VerticalTextAlignment="Center"></Label>
                             <Button Grid.Row="0" Margin="5" Grid.Column="0" Text="Copy" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.CopyCommand}" CommandParameter="{Binding Value}" VerticalOptions="Center" />
                             <Button Grid.Row="0" Margin="5" Grid.Column="1" Text="Delete" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" VerticalOptions="Center" />
+                            <Button Grid.Row="0" Margin="5" Grid.Column="2" Text="Open" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.OpenInBrowserCommand}" CommandParameter="{Binding Value}" VerticalOptions="Center" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
