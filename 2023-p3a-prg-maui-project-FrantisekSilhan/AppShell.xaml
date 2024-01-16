@@ -3,13 +3,19 @@
     x:Class="_2023_p3a_prg_maui_project_FrantisekSilhan.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:_2023_p3a_prg_maui_project_FrantisekSilhan"
+    xmlns:local="clr-namespace:_2023_p3a_prg_maui_project_FrantisekSilhan.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="_2023_p3a_prg_maui_project_FrantisekSilhan">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+        <ShellContent
+            Title="Saved"
+            ContentTemplate="{DataTemplate local:SavedPage}"
+            Route="MainPage" />
+    </FlyoutItem>
 
 </Shell>
