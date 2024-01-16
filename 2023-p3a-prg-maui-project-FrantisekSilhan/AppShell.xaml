@@ -16,6 +16,10 @@
             Title="Saved"
             ContentTemplate="{DataTemplate local:SavedPage}"
             Route="MainPage" />
+        <ShellContent
+            Title="Los"
+            ContentTemplate="{DataTemplate local:LosPage}"
+            Route="MainPage" />
     </FlyoutItem>
 
 </Shell>

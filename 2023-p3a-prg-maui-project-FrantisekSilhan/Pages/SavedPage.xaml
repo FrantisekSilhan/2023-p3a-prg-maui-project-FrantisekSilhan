@@ -4,22 +4,27 @@
              x:Class="_2023_p3a_prg_maui_project_FrantisekSilhan.Pages.SavedPage"
              Title="SavedPage">
     <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding FilteredData}" x:Name="FilteredData">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="{Binding Value}" Padding="3" VerticalTextAlignment="Center"></Label>
-                        <Button Grid.Column="2" Text="Copy" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.CopyCommand}" CommandParameter="{Binding Value}" VerticalOptions="Center" />
-                        <Button Grid.Column="3" Text="Delete" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" VerticalOptions="Center" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Label FontSize="Title" Text="Saved Outputs" HorizontalTextAlignment="Center" />
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding FilteredData}" x:Name="FilteredData">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="1" Margin="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Value}" Padding="3" VerticalTextAlignment="Center"></Label>
+                            <Button Grid.Row="0" Margin="5" Grid.Column="0" Text="Copy" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.CopyCommand}" CommandParameter="{Binding Value}" VerticalOptions="Center" />
+                            <Button Grid.Row="0" Margin="5" Grid.Column="1" Text="Delete" Command="{Binding Source={x:Reference FilteredData}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

@@ -43,6 +43,8 @@ namespace _2023_p3a_prg_maui_project_FrantisekSilhan.ViewModels
 				_value = value;
 				OnPropertyChanged();
 				OpenInBrowserCommand?.ChangeCanExecute();
+				SaveCommand?.ChangeCanExecute();
+				CopyCommand?.ChangeCanExecute();
 			}
 		}
 
@@ -187,8 +189,14 @@ namespace _2023_p3a_prg_maui_project_FrantisekSilhan.ViewModels
 			{
 				return IsValidBrowserLink(Value);
 			});
-			CopyCommand = new Command(Copy);
-			SaveCommand = new Command(Save);
+			CopyCommand = new Command(Copy, (x) =>
+			{
+				return !string.IsNullOrEmpty(Value);
+			});
+			SaveCommand = new Command(Save, (x) =>
+			{
+				return !string.IsNullOrEmpty(Value);
+			});
 			DeleteCommand = new Command(Delete);
 		}
 

@@ -4,24 +4,23 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              x:Class="_2023_p3a_prg_maui_project_FrantisekSilhan.Pages.MainPage">
     <VerticalStackLayout>
-        <VerticalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Button Text="Open in Browser" Command="{Binding OpenInBrowserCommand}" Margin="10" />
-                <Button Text="{Binding CopyButtonText}" Command="{Binding CopyCommand}" Margin="10" />
-                <Button Text="{Binding SaveButtonText}" Command="{Binding SaveCommand}" Margin="10" />
-            </HorizontalStackLayout>
-            <Label 
-                Text="{Binding Value}"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"
-                Margin="10"
-                x:Name="label">
-            </Label>
-        </VerticalStackLayout>
-        <Frame>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="Open in Browser" Command="{Binding OpenInBrowserCommand}" Margin="10" />
+            <Button Text="{Binding CopyButtonText}" Command="{Binding CopyCommand}" Margin="10" />
+            <Button Text="{Binding SaveButtonText}" Command="{Binding SaveCommand}" Margin="10" />
+        </HorizontalStackLayout>
+        <Frame CornerRadius="50" Padding="0" Margin="25">
             <VerticalStackLayout>
                 <zxing:CameraBarcodeReaderView BarcodesDetected="qrCodeReader_BarcodesDetected" x:Name="qrCodeReader" />
             </VerticalStackLayout>
         </Frame>
+        <ScrollView>
+            <Label 
+                Text="{Binding Value}"
+                Margin="10"
+                x:Name="label"
+                HorizontalTextAlignment="Center">
+            </Label>
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>
